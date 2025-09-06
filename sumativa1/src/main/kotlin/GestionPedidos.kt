@@ -1,19 +1,17 @@
 package org.example
 
-import kotlin.coroutines.delay
+import kotlinx.coroutines.delay
 
 object GestionPedidos {
-    val catalogo = listOf(Comida("Hamburguesa", 5.0, "Comida Rápida", 10.0, true),
-        Comida("Pizza", 8.0, "Comida Rápida", 15.0, false),
-        Comida("Ensalada César", 7.0, "Ensaladas", 5.0, true),
-        Bebida("Coca-Cola", 2.0, "Refresco", 1.0, "mediano"),
-        Bebida("Agua Mineral", 1.5, "Agua", 1.0, "pequeño"),
-        Bebida("Cerveza", 3.0, "Alcohol", 1.0, "grande"))
+    val catalogo = listOf(Comida("Hamburguesa Clásica", 8990.0, "Comida Rápida", 10.0, false),
+        Comida("Salmón Grillado", 15990.0, "Pescados", 15.0, true),
+        Bebida("Coca-Cola (mediano)", 2000.0, "Refresco", 1.0, "mediano"),
+        Bebida("Jugo Natural (grande)", 3000.0, "Jugos", 1.0, "grande"))
 
     fun mostrarCatalogo() {
         println("Catálogo de Productos:")
         catalogo.forEachIndexed { index, producto ->
-            println("${index + 1}. ${producto.nombre} - ${producto.categoria} - Precio: \$${"%.2f".format(producto.calcularPrecio())} - Tiempo de Preparación: ${producto.tiempoPreparacion} mins")
+            println("${index + 1}. ${producto.nombre} - Precio: \$${"%.0f".format(producto.calcularPrecio())} - Tiempo de Preparación: ${producto.tiempoPreparacion} mins")
         }
     }
 
@@ -41,9 +39,9 @@ object GestionPedidos {
         estado = EstadoPedido.Listo
 
         println("=== RESUMEN DEL PEDIDO ===")
-        producto.forEach { println("- ${it.nombre}: \$${"%.2f".format(it.calcularPrecio())}") }
-        println("Subtotal: \$${"%.2f".format(subtotal)}")
-        println("Descuento aplicado: \$${"%.2f".format(descuento)}")
+        producto.forEach { println("- ${it.nombre}: \$${"%.0f".format(it.calcularPrecio())}") }
+        println("Subtotal: \$${"%.0f".format(subtotal)}")
+        println("Descuento aplicado: \$${"%.2f".format( subtotal - descuento)}")
         println("IVA (19%): \$${"%.2f".format(iva)}")
         println("Total a pagar: \$${"%.2f".format(total)}")
         println("Estado del pedido: $estado")
