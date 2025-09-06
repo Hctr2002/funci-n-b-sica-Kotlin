@@ -20,16 +20,10 @@ suspend fun main() {
         }
     }
 
-    while (true){
-        println("Ingrese su tipo de cliente (Regular, VIP, Premium):")
-        tipoCliente = readLine() ?: ""
+    println("Ingrese su tipo de cliente (Regular, VIP, Premium):")
+    tipoCliente = readLine() ?: ""
+    tipoCliente.lowercase()
 
-        if (tipoCliente.lowercase() !in listOf("regular", "vip", "premium")) {
-            println("Tipo de cliente no válido. Intente de nuevo.")
-        }else{
-            break
-        }
-    }
 
     GestionPedidos.procesarPedido(productos, tipoCliente)
 
