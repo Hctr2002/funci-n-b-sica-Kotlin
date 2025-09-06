@@ -22,7 +22,6 @@ class Bebida(nombre: String, precio: Double, categoria: String, tiempoPreparacio
 class Comida(nombre: String, precio: Double, categoria: String, tiempoPreparacion: Double, var premium: Boolean = false):
         Producto(nombre, precio, categoria, tiempoPreparacion){
     override fun calcularPrecio(): Double {
-        if (premium) precio *= 1.2 else precio
-        return precio
+        return if (premium) precio * 1.2 else precio
     }
 }
