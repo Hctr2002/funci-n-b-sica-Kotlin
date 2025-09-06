@@ -11,7 +11,7 @@ class Bebida(nombre: String, precio: Double, categoria: String, tiempoPreparacio
     Producto(nombre, precio, categoria, tiempoPreparacion){
     override fun calcularPrecio(): Double {
         return when (tamanio.lowercase()) {
-            "pequeño" -> precio * 0.8
+            "pequeño" -> precio * 1.0
             "mediano" -> precio * 1.15
             "grande" -> precio * 1.3
             else -> precio
