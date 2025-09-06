@@ -3,10 +3,10 @@ package org.example
 import kotlinx.coroutines.delay
 
 object GestionPedidos {
-    val catalogo = listOf(Comida("Hamburguesa Clásica", 8990.0, "Comida Rápida", 10.0, false),
-        Comida("Salmón Grillado", 15990.0, "Pescados", 15.0, true),
-        Bebida("Coca-Cola (mediano)", 2000.0, "Refresco", 1.0, "mediano"),
-        Bebida("Jugo Natural (grande)", 3000.0, "Jugos", 1.0, "grande"))
+    val catalogo = listOf(Comida("Hamburguesa Clásica", 8990.0, "Comida", 10.0, false),
+        Comida("Salmón Grillado", 15990.0, "Comida", 15.0, true),
+        Bebida("Coca-Cola (mediano)", 2000.0, "Bebida", 1.0, "mediano"),
+        Bebida("Jugo Natural (grande)", 3000.0, "Bebida", 1.0, "grande"))
 
     fun mostrarCatalogo() {
         println("Catálogo de Productos:")
